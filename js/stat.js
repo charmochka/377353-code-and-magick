@@ -47,10 +47,10 @@ window.renderStatistics = function (ctx, names, times) {
     var histHeight = HIST_HEIGHT * persentHistHeight / 100;
     if (names[i] !== 'Вы') {
       var opacity = Math.random();
-      var COLOR_HIST = 'rgba(0, 0, 255,' + opacity + ')';
+      COLOR_HIST = 'rgba(0, 0, 255,' + opacity + ')';
     }
 
-    renderHist(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP * 2  - histHeight, COLOR_HIST, histHeight);
+    renderHist(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP * 2 - histHeight, COLOR_HIST, histHeight);
     renderText(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP * 4 + GAP_TOP, '#000', names[i]);
     renderText(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP - histHeight, '#000', Math.floor(times[i]));
   }
