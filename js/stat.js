@@ -8,25 +8,24 @@ var HIST_HEIGHT = 150;
 var HIST_WIDTH = 40;
 var GAP = 10;
 var GAP_HIST = 50;
-var GAP_TOP = 80;                  // Отступ сверху
+var GAP_TOP = 80;
 
 
-
-var renderText = function(ctx, x, y, color, text) {
+var renderText = function (ctx, x, y, color, text) {
   ctx.fillStyle = color;
   ctx.font = TEXT_STYLE;
   ctx.fillText(text, x, y);
-};
+}
 
-var renderCloud = function(ctx, x, y, color) {
+var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
-};
+}
 
-var renderHist = function(ctx, x, y, color, height) {
+var renderHist = function (ctx, x, y, color, height) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, HIST_WIDTH, height);
-};
+}
 
 window.renderStatistics = function (ctx, names, times) {
 
@@ -35,24 +34,25 @@ window.renderStatistics = function (ctx, names, times) {
   renderText(ctx, CLOUD_X + GAP, 40, '#000', 'Ура вы победили!');
   renderText(ctx, CLOUD_X + GAP, 60, '#000', 'Список результатов:');
 
-  var maxTime = 0;                         //Поиск максимального значениея time
-  for (var i = 0; i < times.length; i++) {
-    if (maxTime < times[i]) {
-      maxTime = times[i];
-    };
-  };
+  var maxTime = 0;
+  for (var j = 0; j < times.length; j++) {
+    if (maxTime < times[j]) {
+      maxTime = times[j];
+    }
+  }
 
   for (var i = 0; i < times.length; i++) {
     var persentHistHeight = times[i] * 100 / maxTime;
     var histHeight = HIST_HEIGHT * persentHistHeight / 100;
     if (names[i] === 'Вы') {
-      var color ='rgba(255, 0, 0, 1)';
+      var colorHist ='rgba(255, 0, 0, 1)';
     } else {
       var opacity = Math.random();
-      var color ='rgba(0, 0, 255,' + opacity + ')';
-    };
-    renderHist(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP * 2  - histHeight, color, histHeight);
+      var colorHist ='rgba(0, 0, 255,' + opacity + ')';
+    }
+
+    renderHist(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP * 2  - histHeight, colorHist, histHeight);
     renderText(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP * 4 + GAP_TOP, '#000', names[i]);
     renderText(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP - histHeight, '#000', Math.floor(times[i]));
-   };
-};
+  }
+}
