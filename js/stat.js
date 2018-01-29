@@ -35,18 +35,6 @@ window.renderStatistics = function (ctx, names, times) {
   renderText(ctx, CLOUD_X + GAP, 40, '#000', 'Ура вы победили!');
   renderText(ctx, CLOUD_X + GAP, 60, '#000', 'Список результатов:');
 
-
-  if ('Вы' !== names[0])  {
-    var tempIndex = names.indexOf('Вы');
-    names[tempIndex] = names[0];
-    names[0] = 'Вы';
-    var tempTimes = times[tempIndex];
-    times[tempIndex] = times[0];
-    times[0] = tempTimes;
-  };
-
-
-
   var maxTime = 0;                         //Поиск максимального значениея time
   for (var i = 0; i < times.length; i++) {
     if (maxTime < times[i]) {
@@ -57,7 +45,7 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < times.length; i++) {
     var persentHistHeight = times[i] * 100 / maxTime;
     var histHeight = HIST_HEIGHT * persentHistHeight / 100;
-    if (i === 0) {
+    if (names[i] === 'Вы') {
       var color ='rgba(255, 0, 0, 1)';
     } else {
       var opacity = Math.random();
