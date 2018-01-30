@@ -39,6 +39,17 @@ function getColor(name) {
 };
 
 
+function getMaxTime(times) {
+  var maxTime = times[0];
+  for (var i = 0; i < times.length; i++) {
+    if (maxTime < times[i]) {
+        maxTime = times[i];
+    }
+  }
+
+  return maxTime;
+};
+
 window.renderStatistics = function (ctx, names, times) {
 
   renderCloud(ctx, CLOUD_X + GAP, 20, 'rgba(0, 0, 0, 0.7');
@@ -46,15 +57,9 @@ window.renderStatistics = function (ctx, names, times) {
   renderText(ctx, CLOUD_X + GAP, 40, '#000', 'Ура вы победили!');
   renderText(ctx, CLOUD_X + GAP, 60, '#000', 'Список результатов:');
 
-  var maxTime = 0;
-  for (var j = 0; j < times.length; j++) {
-    if (maxTime < times[j]) {
-      maxTime = times[j];
-    }
-  }
 
   for (var i = 0; i < times.length; i++) {
-    var persentHistHeight = times[i] * 100 / maxTime;
+    var persentHistHeight = times[i] * 100 / getMaxTime(times);
     var histHeight = HIST_HEIGHT * persentHistHeight / 100;
     var colorHist = getColor(names[i]);
 
