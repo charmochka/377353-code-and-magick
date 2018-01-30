@@ -9,7 +9,6 @@ var HIST_WIDTH = 40;
 var GAP = 10;
 var GAP_HIST = 50;
 var GAP_TOP = 80;
-var COLOR_HIST = 'rgba(255, 0, 0, 1)';
 
 
 var renderText = function (ctx, x, y, color, text) {
@@ -28,6 +27,18 @@ var renderHist = function (ctx, x, y, color, height) {
   ctx.fillRect(x, y, HIST_WIDTH, height);
 };
 
+
+function getColor(name) {
+
+    if (name !== 'Вы') {
+        var opacity = Math.random();
+        return 'rgba(0, 0, 255,' + opacity + ')';
+    }
+
+    return 'rgba(255, 0, 0, 1)';
+};
+
+
 window.renderStatistics = function (ctx, names, times) {
 
   renderCloud(ctx, CLOUD_X + GAP, 20, 'rgba(0, 0, 0, 0.7');
@@ -45,12 +56,9 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < times.length; i++) {
     var persentHistHeight = times[i] * 100 / maxTime;
     var histHeight = HIST_HEIGHT * persentHistHeight / 100;
-    if (names[i] !== 'Вы') {
-      var opacity = Math.random();
-      COLOR_HIST = 'rgba(0, 0, 255,' + opacity + ')';
-    }
+    var colorHist = getColor(names[i]);
 
-    renderHist(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP * 2 - histHeight, COLOR_HIST, histHeight);
+    renderHist(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP * 2 - histHeight, colorHist, histHeight);
     renderText(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP * 4 + GAP_TOP, '#000', names[i]);
     renderText(ctx, CLOUD_X + GAP * 2 + i * (HIST_WIDTH + GAP_HIST), HIST_HEIGHT + GAP_TOP + GAP - histHeight, '#000', Math.floor(times[i]));
   }
