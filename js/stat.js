@@ -29,14 +29,12 @@ var renderHist = function (ctx, x, y, color, height) {
 
 
 function getColor(name) {
-
-    if (name !== 'Вы') {
-        var opacity = Math.random();
-        return 'rgba(0, 0, 255,' + opacity + ')';
-    }
-
-    return 'rgba(255, 0, 0, 1)';
-};
+  if (name !== 'Вы') {
+    var opacity = Math.random();
+    return 'rgba(0, 0, 255,' + opacity + ')';
+  }
+  return 'rgba(255, 0, 0, 1)';
+}
 
 
 function getMaxTime(times) {
@@ -46,9 +44,8 @@ function getMaxTime(times) {
         maxTime = times[i];
     }
   }
-
   return maxTime;
-};
+}
 
 window.renderStatistics = function (ctx, names, times) {
 
