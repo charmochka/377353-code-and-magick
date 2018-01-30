@@ -41,7 +41,7 @@ function getMaxTime(times) {
   var maxTime = times[0];
   for (var i = 0; i < times.length; i++) {
     if (maxTime < times[i]) {
-        maxTime = times[i];
+      maxTime = times[i];
     }
   }
   return maxTime;
