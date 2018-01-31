@@ -10,7 +10,6 @@ var GAP = 10;
 var GAP_HIST = 50;
 var GAP_TOP = 80;
 
-
 var renderText = function (ctx, x, y, color, text) {
   ctx.fillStyle = color;
   ctx.font = TEXT_STYLE;
@@ -27,7 +26,6 @@ var renderHist = function (ctx, x, y, color, height) {
   ctx.fillRect(x, y, HIST_WIDTH, height);
 };
 
-
 function getColor(name) {
   if (name !== 'Вы') {
     var opacity = Math.random();
@@ -35,7 +33,6 @@ function getColor(name) {
   }
   return 'rgba(255, 0, 0, 1)';
 }
-
 
 function getMaxTime(times) {
   var maxTime = times[0];
@@ -53,7 +50,6 @@ window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, CLOUD_X, 10, '#fff');
   renderText(ctx, CLOUD_X + GAP, 40, '#000', 'Ура вы победили!');
   renderText(ctx, CLOUD_X + GAP, 60, '#000', 'Список результатов:');
-
 
   for (var i = 0; i < times.length; i++) {
     var persentHistHeight = times[i] * 100 / getMaxTime(times);
