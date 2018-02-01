@@ -1,7 +1,7 @@
 'use strict';
 
 var WIZARD_COUNT = 4;
-var firstName = ['Иван','Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var firstName = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var lastName = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
@@ -18,7 +18,7 @@ function createWizard(wizard) {
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
   similarListElement.appendChild(wizardElement);
-};
+}
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -27,24 +27,24 @@ function shuffleArray(array) {
     array[i] = array[j];
     array[j] = temp;
   }
-  return array
-};
+  return array;
+}
 
 var randomNameFirst = shuffleArray(firstName);
 var randomNameLast = shuffleArray(lastName);
 var randomCoatColor = shuffleArray(coatColor);
 var randomEyesColor = shuffleArray(eyesColor);
 
-for (var i = 0; i < WIZARD_COUNT; i++) {
+for (var n = 0; n < WIZARD_COUNT; n++) {
   var randomWizard = {
-    name: randomNameFirst[i] + ' ' + randomNameLast[i],
-    coatColor: randomCoatColor[i],
-    eyesColor: randomEyesColor[i]
-  }
+    name: randomNameFirst[n] + ' ' + randomNameLast[n],
+    coatColor: randomCoatColor[n],
+    eyesColor: randomEyesColor[n]
+  };
   wizards.push(randomWizard);
 }
 
-for (var i = 0; i < wizards.length; i++) {
+for (var k = 0; k < wizards.length; k++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
-  createWizard(wizards[i]);
+  createWizard(wizards[k]);
 }
