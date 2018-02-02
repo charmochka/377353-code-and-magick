@@ -8,6 +8,7 @@ var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 function showSetup() {
   document.querySelector('.setup').classList.remove('hidden');
+}
 
 
 function createWizard(wizard) {
@@ -31,7 +32,7 @@ function shuffleArray(array) {
   return array;
 }
 
-function generateWizards(arrFirstName, arrLastName, arrCoatColor, arrEyesColor) {
+function generateWizards (arrFirstName, arrLastName, arrCoatColor, arrEyesColor) {
   var randomNameFirst = shuffleArray(arrFirstName);
   var randomNameLast = shuffleArray(arrLastName);
   var randomCoatColor = shuffleArray(arrCoatColor);
@@ -47,7 +48,7 @@ function generateWizards(arrFirstName, arrLastName, arrCoatColor, arrEyesColor) 
     wizards.push(randomWizard);
   }
   return wizards
-};
+}
 
 function createArrWizards(arrWizards) {
   for (var k = 0; k < arrWizards.length; k++) {
