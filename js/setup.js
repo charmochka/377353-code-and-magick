@@ -7,8 +7,7 @@ var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)'
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 function showSetup() {
-  document.querySelector('.setup').classList.remove('hidden'); //удалить класс hidden у класса setup
-}
+  document.querySelector('.setup').classList.remove('hidden');
 
 
 function createWizard(wizard) {
@@ -19,7 +18,7 @@ function createWizard(wizard) {
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
   similarListElement.appendChild(wizardElement);
-  document.querySelector('.setup-similar').classList.remove('hidden'); //удалить класс hidden у класса setup-similar
+  document.querySelector('.setup-similar').classList.remove('hidden');
 }
 
 function shuffleArray(array) {
@@ -32,7 +31,7 @@ function shuffleArray(array) {
   return array;
 }
 
-function generateWizards (arrFirstName, arrLastName, arrCoatColor, arrEyesColor) {
+function generateWizards(arrFirstName, arrLastName, arrCoatColor, arrEyesColor) {
   var randomNameFirst = shuffleArray(arrFirstName);
   var randomNameLast = shuffleArray(arrLastName);
   var randomCoatColor = shuffleArray(arrCoatColor);
@@ -48,13 +47,13 @@ function generateWizards (arrFirstName, arrLastName, arrCoatColor, arrEyesColor)
     wizards.push(randomWizard);
   }
   return wizards
-}
+};
 
-function arrWizards(arrWizards) {
+function createArrWizards(arrWizards) {
   for (var k = 0; k < arrWizards.length; k++) {
     createWizard(arrWizards[k]);
   }
 }
 
-showSetup(); //вызываем окно настройки
-arrWizards(generateWizards(firstName, lastName, coatColor, eyesColor));
+showSetup();
+createArrWizards(generateWizards(firstName, lastName, coatColor, eyesColor));
