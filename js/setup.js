@@ -8,6 +8,7 @@ var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
 function showSetup() {
   document.querySelector('.setup').classList.remove('hidden');
+  document.querySelector('.setup-similar').classList.remove('hidden');
 }
 
 
@@ -19,7 +20,7 @@ function createWizard(wizard) {
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
   similarListElement.appendChild(wizardElement);
-  document.querySelector('.setup-similar').classList.remove('hidden');
+  showSetup();
 }
 
 function shuffleArray(array) {
@@ -56,5 +57,5 @@ function createArrWizards(arrWizards) {
   }
 }
 
-showSetup();
+
 createArrWizards(generateWizards(firstName, lastName, coatColor, eyesColor));
