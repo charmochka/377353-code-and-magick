@@ -30,7 +30,7 @@ function shuffleArray(array) {
   return array;
 }
 
-function generateWizards (arrFirstName, arrLastName, arrCoatColor, arrEyesColor) {
+function generateWizards(arrFirstName, arrLastName, arrCoatColor, arrEyesColor) {
   var randomNameFirst = shuffleArray(arrFirstName);
   var randomNameLast = shuffleArray(arrLastName);
   var randomCoatColor = shuffleArray(arrCoatColor);
@@ -45,7 +45,7 @@ function generateWizards (arrFirstName, arrLastName, arrCoatColor, arrEyesColor)
     };
     wizards.push(randomWizard);
   }
-  return wizards
+  return wizards;
 }
 
 function createWizards(arrWizards) {
