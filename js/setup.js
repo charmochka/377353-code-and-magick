@@ -57,16 +57,16 @@ var createWizards = function (arrWizards) {
 var openSetup = document.querySelector('.setup-open');
 var closeSetup = document.querySelector('.setup-close');
 
-var getActiveElement = function() {
-   return document.activeElement;
-} ;
+var getActiveElement = function () {
+  return document.activeElement;
+};
 
-var getUserName = function() {
+var getUserName = function () {
   return document.querySelector('.setup-user-name');
 };
 
 // При нажатии на клавиатуре esc закрыть окно настроек
-var onPopupEscPress = function (evt) { 
+var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE && getActiveElement() !== getUserName()) {
     closePopup();
   }
@@ -79,7 +79,7 @@ var openPopup = function () {
 };
 
 // Добавляет класс hidden при вызове
- var closePopup = function () {
+var closePopup = function () {
   document.querySelector('.setup').classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress); // Удалили обработчик события, так как наше окно настроек уже закрыто
 };
@@ -97,7 +97,7 @@ closeSetup.addEventListener('click', closePopup); // При клике закр�
 closeSetup.addEventListener('keydown', function (evt) { // Если на пользователь нажал клавишу enter  закрыть окно
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
-  } 
+  }
 });
 
 // Рандомный элемент из массива
@@ -116,7 +116,7 @@ document.body.querySelector('.setup-player').querySelector('.wizard-eyes').addEv
 var changeColorCoat = function () {
   document.body.querySelector('.setup-player').querySelector('.wizard-coat').style.fill = getRandomElement(coatColor);
 };
-document.body.querySelector('.setup-player').querySelector('.wizard-coat').addEventListener('click', changeColorCoat)
+document.body.querySelector('.setup-player').querySelector('.wizard-coat').addEventListener('click', changeColorCoat);
 
 // Изменение цвета фаерболла
 
