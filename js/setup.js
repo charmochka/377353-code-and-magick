@@ -68,7 +68,7 @@ var getUserName = function () {
 // При нажатии на клавиатуре esc закрыть окно настроек
 var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE && getActiveElement() !== getUserName()) {
-    evt.stopPropagation()
+    evt.stopPropagation();
     closePopup();
   }
 };
