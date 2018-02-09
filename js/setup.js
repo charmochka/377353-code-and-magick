@@ -68,6 +68,7 @@ var getUserName = function () {
 // При нажатии на клавиатуре esc закрыть окно настроек
 var onPopupEscPress = function (evt) {
   if (evt.keyCode === ESC_KEYCODE && getActiveElement() !== getUserName()) {
+    evt.stopPropagation()
     closePopup();
   }
 };
@@ -108,15 +109,15 @@ var getRandomElement = function (array) {
 
 // Изменение цвета глаз
 var changeColorEyes = function () {
-  document.body.querySelector('.setup-player').querySelector('.wizard-eyes').style.fill = getRandomElement(eyesColor);
+  document.body.querySelector('.setup-player .wizard-eyes').style.fill = getRandomElement(eyesColor);
 };
-document.body.querySelector('.setup-player').querySelector('.wizard-eyes').addEventListener('click', changeColorEyes);
+document.body.querySelector('.setup-player .wizard-eyes').addEventListener('click', changeColorEyes);
 
 // Изменение цвета плаща
 var changeColorCoat = function () {
-  document.body.querySelector('.setup-player').querySelector('.wizard-coat').style.fill = getRandomElement(coatColor);
+  document.body.querySelector('.setup-player .wizard-coat').style.fill = getRandomElement(coatColor);
 };
-document.body.querySelector('.setup-player').querySelector('.wizard-coat').addEventListener('click', changeColorCoat);
+document.body.querySelector('.setup-player .wizard-coat').addEventListener('click', changeColorCoat);
 
 // Изменение цвета фаерболла
 
